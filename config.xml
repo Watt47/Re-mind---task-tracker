@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.wattsapp.todo"
+    versionCode = "1" version="0.0.1"
+    xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Re:mind - task tracker</name>
+    <description>
+Application allows managing and tracking tasks.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    
+  <!-- Android only -->
+  
+  <preference name="android-targetSdkVersion" value="28" />
+  <icon src="res/icon/icons8-to-do-96.png" platform="ios" width="1024" height="1024"/>
+  <icon src="res/icon/icons8-to-do-40.png" platform="ios" width="40" height="40"/>
+  <icon src="res/icon/icons8-to-do-76.png" platform="ios" width="76" height="76"/>
+  <icon src="res/icon/icons8-to-do-120.png" platform="ios" width="120" height="120"/>
+  <icon src="res/icon/icons8-to-do-152.png" platform="ios" width="152" height="152"/>
+  
+ <!-- <preference name="phonegap-version" value="cli-7.1.0" />-->
+
+</widget>
