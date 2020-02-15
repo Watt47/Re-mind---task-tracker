@@ -21,12 +21,25 @@ var app = {
         var listeningElement = document.getElementById('loading');
         listeningElement.setAttribute('style', 'display:none;');
         common.init();
+      //  html10n.localize("en");
         ui.screen.tasks();
         settings.init();
+     //   html10n.localize("en");
         
         window.onerror = function(msg, url, line){
             if (JSON.parse(localStorage.getItem("settings")).showerrors)
+              //  alert(_("debug_error", {msg: msg, url: url, line: line}));
                 alert("Error:\n" + "Message: " + msg + "\nURL: " + url + "\nLine: " + line);
+            return false;
         }
+        window.addEventListener("orientationchange", function(){
+                                var afterOrientationChange = function(){
+                                    ui.reloadPage();
+                                    window.removeEventListener("resize", afterOrientationChange);
+                                };
+                                window.addEventListener("resize", afterOrientationChange);
+        });
+        var alertOnResize = function(){/* alert(); */ui.reloadPage();};
+        window.addEventListener("resize", alertOnResize);
     }
 };

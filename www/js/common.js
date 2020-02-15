@@ -9,5 +9,12 @@ var common = {
             this.appendChild(Child);
             return Child;
         };
+        Element.prototype.setResId = function(identifier){
+            this.setAttribute("data-l10n-id", identifier);
+        };
+        Array.prototype.swapDelete = function(index){
+            this[index] = this[this.length - 1];
+            this.pop();
+        }
     }
 };
