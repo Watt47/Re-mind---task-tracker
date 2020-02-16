@@ -1,0 +1,66 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"browser-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "app/src/main/AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [
+                        {
+                            "xml": "<application android:hasFragileUserData=\"true\" />",
+                            "count": 1,
+                            "mode": "merge",
+                            "id": "config.xml"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.wattsapp.todo"
+        },
+        "com.telerik.plugins.wkwebview": {
+            "WKWEBVIEW_SERVER_PORT": "12344",
+            "PACKAGE_NAME": "com.wattsapp.todo"
+        },
+        "cordova-plugin-wkwebview-engine": {
+            "PACKAGE_NAME": "com.wattsapp.todo"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/src/browser/DeviceProxy.js",
+            "id": "cordova-plugin-device.DeviceProxy",
+            "pluginId": "cordova-plugin-device",
+            "runs": true
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-device": "2.0.3",
+        "com.telerik.plugins.wkwebview": "0.6.10",
+        "cordova-plugin-wkwebview-engine": "1.2.1"
+    }
+}

@@ -1,0 +1,221 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#FFFFFF;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: table;
+  width: 100%;
+}
+
+ul.menu li {
+ /* float: left;*/
+ display: table-cell;
+}
+
+ul.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+textarea {
+    resize: none;
+    border-radius: 4px;
+}
+input[type="text"]{
+    border-radius: 4px;
+}
+ul.menu li a.disabled{
+    background-color: #d2d2d2;
+}
+table#tasks_table thead tr:first-child {
+    background: #0FF;
+}
+table#tasks_table tbody tr:nth-child(odd) {
+    background: #DDD;
+}
+table#tasks_table tbody tr:nth-child(even){
+    background: white;
+}
+table#tasks_table th, table#tasks_table td {
+    padding: 10px;
+}
+div#main th, div#main td{
+    padding: 10px;
+}
+table {
+    width: 100%;
+}
+.min-width{
+    width: 1px;
+}
+.width100percent{
+    width: 100%;
+}
+.fab {
+    position: fixed;
+    width: 50px;
+    height: 30px;
+    bottom: 100px;
+    right: 50px;
+    background-color: #0C9;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+.bold {
+    font-weight: bold;
+}
+#header{
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 16px;
+}
+
+table#tasks_table {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+table#tasks_table thead {
+    /* head takes the height it requires,
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+   /* width: calc(100% - 0.9em);*/
+  width: 100%
+}
+table#tasks_table tbody {
+    /* body takes all the remaining available space */
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+}
+table tbody tr {
+    width: 100%;
+}
+table#tasks_table thead, table#tasks_table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+#deleteBtn {
+    background: red;
+    border-radius: 8px;
+}
+#lngselect {
+    border-radius: 8px;
+}
+input[type="button"]{
+    border-radius: 8px;
+}
+
