@@ -10,15 +10,6 @@ init: function(root){
     this.appendMenuIcon(ul, "icons8-settings-24.png").onclick = function(){
         ui.screen.settings();
     };
-    /*
-    this.appendMenuItem(ul, "tasks_menu_removeall", "Remove all").onclick = function(){
-        if (confirm(_("tasks_warning_deleteall"))){
-            tasks.tasks = [];
-            tasks.saveTasks();
-            tasks.loadTasks();
-            tasks.toTable();
-        }
-    };*/
     this.appendMenuIcon(ul, "icons8-filter-24.png").onclick = function(){
         tasks.filterShowDone = !tasks.filterShowDone;
         tasks.toTable();
@@ -55,31 +46,24 @@ task: function(root, newtask){
     };
     this.appendMenuIcon(ul, "icons8-edit-24.png", newtask).onclick = function(e){
         if (newtask){
-            //alert(0);
             return;
         }
         document.getElementById("name").disabled = false;
         document.getElementById("description").disabled = false;
     };
     this.appendMenuIcon(ul, "icons8-save-26.png").onclick = function(){
-      //  alert(1);
         if (newtask){
-      //      alert(tasks.tasks.length);
             task.arg = tasks.tasks.length;
             tasks.addTask(document.getElementById("name").value);
-      //      alert(tasks);
         }
-    //    alert(12);
         tasks.tasks[task.arg].name = document.getElementById("name").value;
         tasks.tasks[task.arg].complete = document.getElementById("complete").children[0].checked;
         tasks.tasks[task.arg].description = document.getElementById("description").value;
         tasks.saveTasks();
         ui.screen.tasks();
-     //   alert(4);
         if (newtask){
             tasks.tasks[tasks.tasks.length-1].id = tasks.tasks.length - 1 ? tasks.tasks[tasks.tasks.length-2].id + 1 : 1;
         }
-  //      alert(3);
     };
     this.appendMenuIcon(ul, "icons8-task-completed-24 copy.png").onclick = function(){
         if (!newtask)
