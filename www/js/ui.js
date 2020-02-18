@@ -48,7 +48,7 @@ button: function(caption){
     return btn;
 },
 about: function(){
-    alert(html10n.get("about_version", {"appname": "Todo app", "version": "0.0.12", "platform": device.platform}));
+    alert(html10n.get("about_version", {"appname": "Todo app", "version": "0.0.14", "platform": device.platform}));
 },
 editBox: function(){
     var box = document.createElement('input');
@@ -120,8 +120,8 @@ tasks: function(){
      };
     main.createChildElement("div", "class=fab,onclick=ui.screen.task();").textContent = "+";
     document.removeEventListener("backbutton", ui.screen.backToMain, false);
-    alert(1);
-    alert(2);
+  //  alert(1);
+  //  alert(2);
     html10n.localize(settings.getLanguage());
     //table.style.height = (window.innerHeight - ui.bottomMenuShift) + "px";
     ui.reloadPage();

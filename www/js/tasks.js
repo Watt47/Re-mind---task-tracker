@@ -56,7 +56,7 @@ toTable: function(){
             var x = row.createChildElement("th");
             switch (property){
                     case "complete":
-                   //     x.innerHTML = _("tasks_field_done");//.bold();
+                        x.innerHTML = _("tasks_field_done");//.bold();
                       //  x.classList.add("bold");
                         x.setResId("tasks_field_done");
                     x.onclick = function(){
@@ -66,7 +66,7 @@ toTable: function(){
                     };
                         break;
                     default:
-                   //     x.innerHTML = _("tasks_field_" + property);
+                        x.innerHTML = _("tasks_field_" + property);
                     //    x.classList.add("bold");
                         x.setResId("tasks_field_" + property);
                     x.onclick = function(){

@@ -19,7 +19,7 @@ init: function(root){
             tasks.toTable();
         }
     };*/
-    this.appendMenuIcon(ul, "icons8-task-completed-24.png").onclick = function(){
+    this.appendMenuIcon(ul, "icons8-filter-24.png").onclick = function(){
         tasks.filterShowDone = !tasks.filterShowDone;
         tasks.toTable();
     };

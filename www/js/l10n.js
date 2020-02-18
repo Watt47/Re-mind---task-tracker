@@ -152,6 +152,12 @@ window.html10n = (function(window, document, undefined) {
       this.parse(lang, href, this.cache[href], cb)
       return;
     }
+    //
+    that.cache[href] = Translations;
+    that.parse(lang, href, Translations, cb);
+                  return;
+               
+                  
 
     var xhr = new XMLHttpRequest()
     xhr.open('GET', href, /*async: */true)
